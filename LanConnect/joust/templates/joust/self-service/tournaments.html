@@ -1,0 +1,27 @@
+{% extends "joust/admin/base.html" %}
+{% block title %}Tournament Bracket Generation{% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="/admin-media/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/admin-media/css/forms.css" />
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/admin-media/js/jquery.init.js"></script>
+<script type="text/javascript" src="/admin-media/js/actions.min.js"></script>
+
+{{tournamentform.media}}
+{% endblock stylesheets %} 
+
+{% block navigation %}
+{{block.super}} >> <a href="{% url joust-selfserve-tournament %}">Signup</a>
+{% endblock navigation %}
+
+{% block content %}
+    <h3>Tournament Signup</h3>
+    <form method="POST" action="{{ request.path }}">
+        <table>
+            {% with tournamentform as form %}{% include "_forms.html" %}{% endwith %}
+            <tr><td></td><td><input type="submit" value="Signup!"></td></tr>
+            
+        </table>
+    </form>
+{% endblock content %}

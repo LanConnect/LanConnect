@@ -1,0 +1,11 @@
+{% extends "sphene/base.html" %}
+
+
+{% block content %}
+<img src="{{ MEDIA_URL }}error_reporting/assassinmonkey.jpg" class="fancypic" style="float:left;">
+
+<h1>Error 404 - Page Not Found</h1><br/><br/>
+<p>Sorry, the page you were looking for ({{ request_path }}) has been stolen.</p>
+<p>We have dispatched trained assasin monkeys to *ahem* <i>retrieve</i> the page.</p>
+{% endblock %}
+

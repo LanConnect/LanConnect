@@ -1,0 +1,56 @@
+{% load thumbnail %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title> Tournament Overview {{ area }} </title>
+		<meta name="viewport" content="width=device-width">
+		<link type="text/css" rel="stylesheet" media="all" href="{{ MEDIA_URL }}phone.css" />
+	</head>
+	<body>
+		<div id="header">{{ event }}</div>
+		<div id="content">
+		{% for tournament in tournaments %}
+			<div class="tournament_caption">{{ tournament.name }}</div>
+			<table class="tournament">
+			{% if tournament.in_progress %}
+			
+				<tr><th> Matches about to start </th></tr>
+				{% if tournament.startable_matches %}
+					{% for match in tournament.startable_matches %}
+					<tr><td>
+						<span class="station">Station: {{ match.station }}</span>
+						<div class="match">
+						{% for entrant in match.entrants.all %}
+							<span class="entrant">{{ entrant.team_name }}</span>
+						{% endfor %}
+						</div>
+					</td></tr>
+					{% endfor %}{# matches #}
+				{% else %}
+				<tr><td><span class="greyed">No upcoming matches</span></td></tr>
+				{% endif %}
+				
+				<tr><th>  Matches in progress </th></tr>
+				{% if tournament.in_progress_matches %}
+					{% for match in tournament.in_progress_matches %}
+					<tr><td>
+						<span class="station">Station: {{ match.station }}</span>
+						<div class="match">
+						{% for entrant in match.entrants.all %}
+							<span class="entrant">{{ entrant.team_name }}</span>
+						{% endfor %}
+						</div>
+					</td></tr>
+					{% endfor %}{# matches #}
+				{% else %}
+				<tr><td><span class="greyed">No running matches</span></td></tr>
+				{% endif %}
+				
+			{% else %}
+				<tr><td><span class="greyed"> Starts at {{ tournament.start|date:"P D" }} </span></td></tr>
+			{% endif %}{# tournament.in_progress #}
+			</table>
+			{% endfor %}{# tournaments #}
+		</div>
+	</body>
+</html>

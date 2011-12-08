@@ -1,0 +1,13 @@
+<html>
+	<head>
+		<title>TIO Import Tool</title>
+	</head>
+	<body>
+		<h1>TIO Import Tool</h1>
+		<form enctype="multipart/form-data"  method="post" action="{% url tio.import %}">
+			{{ import_f.as_p }}
+			<p><input type="submit" value="Import"/></p>
+		</form>
+	</body>
+</html>
+

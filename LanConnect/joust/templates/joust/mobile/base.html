@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title>{% block title %}{% endblock title%}</title>
+		
+		{# apple cruft #}
+		<meta name="viewport" content="width=device-width" />
+		<meta rel="apple-touch-icon" href="{{ MEDIA_URL }}joust/images/apple-icon.png" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+
+		<link type="text/css" rel="stylesheet" media="all" href="{{MEDIA_URL}}joust/phone.css" />
+	</head>
+	<body>
+		<div id="header">
+			<div id="branding">{% block branding %} Joust {% endblock %}</div>
+			<div id="title">{% block header %}{{ session.event }}{% endblock %}</div>
+			<a href="#" id="menu-drop">
+				<img src="{{MEDIA_URL}}joust/images/more-36.png">
+				{% block menu %}{% endblock menu %}
+			</a>
+		</div>
+		<div id="content">
+		{% block content %}
+		{% endblock content %}
+		</div>
+		<div id="footer">{% block footer %}{% endblock %}</div>
+	</body>
+</html>

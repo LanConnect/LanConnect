@@ -1,0 +1,30 @@
+{% extends "joust/mobile/base.html" %}
+
+{% block title %} Pick Event {% endblock title %}
+{% block header %} Pick Event {% endblock header %}
+{% block content %}
+	<div class="joust-list-caption">Events</div>
+	<div class="joust-list">
+		<h2> Running Events </h2>
+		{% if running_events %}
+			<ul>
+			{% for event in running_events %}
+				<li><a href="{{ url joust-helper-tournament_picker}}?event={{event.pk}}"> {{ event.name }} - {{event.start}} -> {{event.end}}></a></li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			<span class="greyed">No Running Events</span>
+		{% endif %}
+		<h2> Upcoming Events </h2>
+		{% if upcoming_events %}
+			<ul>
+			{% for event in upcoming_events %}
+				<li>{{ event.name }} - {{event.start}}</li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			<span class="greyed">No Upcoming Events</span>
+		{% endif %}
+	</div>
+{% endblock content %}
+{% block footer %}{% endblock footer %}

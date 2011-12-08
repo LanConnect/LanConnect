@@ -1,0 +1,23 @@
+{% load thumbnail %}
+
+{% extend "lanconnect/base.html" %}
+
+{% block subtitle %}Reserve Your Seat{% endblock subtitle %}
+
+{% block content %}
+<h1>{{event.name}} <small>{{ event.start|date }} {{ event.time }}</small></h1>
+{{ bookingform.as_html }}
+
+<div id="seating">
+{% for seat in seats %}
+  <div class="seat{% if seat.is_booked %} seat_booked{% endif %}" id="seat_{{seat.id}}" style=left:{{ seat.left }};top:{{ seat.top }};">
+    {% if seat.user %}
+      {% thumbnail seat.user.avatar crop="smart" autocrop %}
+      <ul>
+        <li>{{ seat.user.name }} {% if seat.user.type == "sm" %}<i>(Supermember){% endif %}</i></li>
+        <li><a href="/booking/swap-with/{{ seat.user }}">Offer to Swap</a></li>
+      </ul>
+    {% endif %}
+  </div>
+{% endfor %}
+</div>

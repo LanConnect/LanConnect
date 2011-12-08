@@ -1,0 +1,74 @@
+{% load thumbnail %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" media="all" href="{{ MEDIA_URL }}projector.css" />
+		<script type="text/javascript" src="jquery-1.4.4.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$("#stations li")[0].addClass("selected");
+		});
+		</script>
+	</head>
+	<body>
+		<!-- BANNER -->
+		<div id="banner">
+			<img src="/2010/images/avcon_logo.gif">
+			<h2> Currently Running Tournaments </h2>
+		</div>
+		<!-- STATIONS -->
+		<div id="stations">
+			<h3> Matches </h3>
+			<ul>
+				{% for station in stations %}
+				<li> {{ station.name }} </li>
+				{% endfor %}
+				
+				<li> Station 1 </li>
+				<li> Station 2 </li>
+				<li> Station 3 </li>
+				<li> Station 4 </li>
+				
+			</ul>
+		</div>
+	<!-- CONTENT -->
+		<div id="content">
+			<div class="match">
+				<h2> Smash Brothers </h2> - <h3> Starting in 3 minutes</h3>
+				{% comment %}{% if match.in_progress %}
+					<h3> Started at {{ match.started|date "P" }}</h3>
+				{% else %}
+					<h3> Starting in {{ match.time_to_start }}</h3>
+				{% endif %}{% endcomment %}
+				<div class="m4player">
+				<span class="vs"></span>
+					<span class="player">
+						{#{% thumbnail entrant.primary_user.get_profile.avatar %}#}
+						<div class="avatar"><img src="/{{MEDIA_URL}}joust/avatars/dummy_avatar.jpg"></div> 
+						<span class="player-name">Player 1</span><br>
+						<span class="status ready">Ready To Play</span>
+					</span>
+					<span class="player">
+						{#{% thumbnail entrant.primary_user.get_profile.avatar %}#}
+						<div class="avatar"><img src="/{{MEDIA_URL}}joust/avatars/dummy_avatar.jpg"></div> 
+						<span class="player-name">Player 2</span><br>
+						<span class="status ready">Ready To Play</span>
+					</span>
+					<span class="player">
+						{#{% thumbnail entrant.primary_user.get_profile.avatar %}#}
+						<div class="avatar"><img src="/{{MEDIA_URL}}joust/avatars/dummy_avatar.jpg"></div> 
+						<span class="player-name">Player 3</span><br>
+						<span class="status waiting">Waiting for Player</span>
+					</span>
+					<span class="player">
+						{#{% thumbnail entrant.primary_user.get_profile.avatar %}#}
+						<div class="avatar"><img src="/{{MEDIA_URL}}joust/avatars/dummy_avatar.jpg"></div> 
+						<span class="player-name">Player 4</span><br>
+						<span class="status ready">Ready To Play</span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</body>
+	<div footer
+</html>

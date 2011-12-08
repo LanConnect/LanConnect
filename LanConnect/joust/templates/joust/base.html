@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title>{% block title %}{% endblock title%}</title>
+		
+	{% if request.mobile
+		{# apple cruft #}
+		<meta name="viewport" content="width=device-width" />
+		<meta rel="apple-touch-icon" href="{{ MEDIA_URL }}joust/images/apple-icon.png" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link type="text/css" rel="stylesheet" media="all, device-width<320px" href="{{STATIC_URL}}joust/css/phone.css" />
+	{% else %}
+		<link type="text/css" rel="stylesheet" media="all" href="{{STATIC_URL}}joust/css/base.css" />
+	{% endif %}
+		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}/css/forms.css" />
+		{% block stylesheets %}{% endblock %}
+	</head>
+	<body>
+		<div id="header">
+			<div id="branding">{% block branding %} Joust {% endblock %}</div>
+			<div id="title">{% block header %}{{ session.event }}{% endblock %}</div>
+			<a href="#" id="menu-drop">
+				<img src="{{STATIC_URL}}joust/images/more-36.png">
+				{% block menu %}{% endblock menu %}
+			</a>
+		</div>
+	{% if not request.mobile %}
+		<div id="navigation">{% block navigation %}<a href="{% url joust-index %}">Joust Tournament Management System</a>{% endblock navigation %}
+	{% endif %}
+		<div id="content">
+		{% block content %}
+		{% endblock content %}
+		</div>
+		<div id="footer">{% block footer %}{% endblock %}</div>
+	</body>
+</html>

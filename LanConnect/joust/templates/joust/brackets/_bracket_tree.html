@@ -1,0 +1,25 @@
+{% with "joust/brackets/_bracket_tree.html" as template %}<table>
+	<tbody>
+		<tr>
+			<td>
+				{% for match in match.from_winner.all %}
+					{% include template %}
+				{% endfor %}
+				{% for entrant in match.entrants.all %}
+					<span class="entrant initial">{{ entrant.team_name }}</span><br>
+				{% endfor %}
+			</td>
+			<td>
+				{% if match.finished %}
+					<div class="entrant">{{ match.winner.team_name }}</span>
+				{% else %}
+					{% if match.started %}
+						<div class="entrant started">Started</span>
+					{% else %}
+						<div class="entrant">Waiting to start</span>
+					{% endif %}
+				{% endif %}
+			</td>
+		</tr>
+	</tbody>
+</table>{% endwith %}

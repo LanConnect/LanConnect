@@ -1,0 +1,145 @@
+html, body {
+	margin: 0px !important;
+	position: relative;
+}
+
+h1, h2, h3, h4{
+	font-family: Arial,'san-serif';
+}
+
+#banner {
+	width: 100%;
+	background: url("/2010/themes/avcon/images/top.gif") repeat-x scroll 0 -25px transparent;
+	margin: 0;
+	height: 105px;
+}
+
+#banner > img {
+	position: absolute;
+	top: -25px;
+	float: left;
+}
+
+#banner > h2 {
+	position: absolute;
+	top: 40px;
+	left: 400px;
+	padding: 20px 0;
+	margin: 0px !important;
+}
+
+/* Station Definitions */
+#stations {
+	width: 20%;
+	margin: 0px;
+	background: #CCCC99;
+	float: left;
+	display: inline-block;
+	height: 500px
+}
+
+#stations > h3 {
+	margin: 0px !important;
+	padding: 0px 10px;
+}
+#stations > ul {
+	padding:0px;
+}
+
+#stations > ul > li {
+	list-style: none;
+	border: 1px solid #B2B27F;
+	backround: -moz-linear-gradient(-90deg, #F1EA97, #C1A315) repeat scroll 0 0 transparent;
+	padding: 3px;
+	font-family: Arial,'san-serif';
+}
+
+#stations > ul > li.selected {
+	font-weight: bold;
+}
+
+/* content section */
+#content {
+	margin-right: auto;
+	padding: 20px;
+	margin-left: 20%; 
+	/* display: inline-block;*/
+}
+
+
+#content .match {
+	/* border: 1px solid black; */
+	padding: 20px;
+}
+
+#content .match h2, #content .match h3 {
+	display: inline-block;
+	padding: 20px 0;
+	margin: 0px;
+}
+
+
+#content .match .m4player .vs {
+	position: absolute;
+	left: 405px;
+	top: 295px;
+	width: 66px;
+	height: 66px;
+	background: url(/2010/joust/vs.png);
+}
+
+.m4player .player {
+	display: inline-block;
+	width: 200px;
+	height: 80px;
+	padding: 10px;
+	-moz-border-radius: 20px;
+	border: 1px solid #B2B27F;
+	margin: 5px;
+	-moz-box-shadow: 0px 10px 5px rgba(0,0,0,.3);
+}
+
+.m4player .avatar {
+	width: 50px !important;
+	height: 50px !important;
+	float: left;
+}
+.m4player .player:nth-child(even) .avatar {
+	display: inline-block;
+}
+
+.m4player img {
+	background: white;
+	padding: 5px;
+	-moz-border-radius: 10px;
+	-moz-box-shadow: 0px 5px 5px rgba(0,0,0,.3);
+	border: 1px solid darkgrey;
+	position: relative;
+	top: -20px;
+	left: -20px;
+	display: block;
+}
+
+.m4player .player:nth-child(odd) img {
+	left: 20px !important;
+}
+.m4player .player:nth-child(odd) .avatar {
+	float: right;
+}
+
+.player .player-name {
+	color #B2B27F;
+	font-family: Arial,'san-serif';
+	font-size: 1.5em;
+}
+
+.m4player .player:nth-child(odd) {
+	text-align: right;
+}
+
+.player .status.ready {
+	color: green;
+}
+.player .status.waiting {
+	color: red;
+}

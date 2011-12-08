@@ -1,0 +1,17 @@
+{% extends "joust/base.html" %}
+{% block title %}Competitor Signup{% endblock title %}
+{# {% block stylesheets %}{% endblock stylesheets %} #}
+
+{% block navigation %}
+{{block.super}} >> <a href="{% url joust-selfserve-signup %}">Signup</a>
+{% endblock navigation %}
+
+{% block content %}
+	<h3>Tournament Signup</h3>
+	<form method="POST" action="{% url joust-selfserve-signup %}">
+		<table>
+			{% with signupform as form %}{% include "_forms.html" %}{% endwith %}
+			<tr><td></td><td><input type="submit" value="Signup!"></td></tr>
+		</table>
+	</form>
+{% endblock content %}

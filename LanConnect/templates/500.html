@@ -1,0 +1,14 @@
+{% extends "sphene/base.html" %}
+
+{% block content %}
+    <h1>Error 500 - Internal Error</h1>
+    <br/><br/>
+
+    <p>Sorry, an internal error happened while processing your request. Most likely the codebears got fed up and went to get beer.</p>
+    <center><img src="{{ MEDIA_URL }}error_reporting/codebear.jpg" class="fancypic"></center>
+    <p>You might want to go <a href="javascript:history.go(-1)">to the last page</a> and stay there until it's safe to go out again...</p>
+    
+    <br/><br/>
+    <p>An email has been generated to notify the admin of this site about the problem, and the codebears will be rounded up by professionals.</p>
+
+{% endblock %}

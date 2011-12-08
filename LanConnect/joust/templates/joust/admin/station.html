@@ -1,0 +1,17 @@
+{% extends "joust/base.html" %}
+{% block title %}Admin Signup{% endblock title %}
+{# {% block stylesheets %}{% endblock stylesheets %} #}
+
+{% block navigation %}
+{{block.super}} >> <a href="{% url joust-admin-station station.id %}">Signup</a>
+{% endblock navigation %}
+
+{% block content %}
+    <h3>{{ station.name }}</h3>
+    <form method="POST" action="{{ request.path }}">
+        <table>
+            {% with signupform as form %}{% include "_forms.html" %}{% endwith %}
+            <tr><td></td><td><input type="submit" value="Signup!"></td></tr>
+        </table>
+    </form>
+{% endblock content %}

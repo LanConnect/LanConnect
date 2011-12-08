@@ -1,0 +1,28 @@
+{% extends "joust/base.html" %}
+
+{% block content %}
+	<h1>Tournament detail: {{ object.name }}</h1>
+	<p><strong>Game</strong>: {{ object.game.name }}</p>
+	<p><strong>Time</strong>: {{ object.start }} - {{ object.end }}</p>
+	
+	<p>View Bracket</p>
+	<h1>Matches</h1>
+	<table>
+		<tbody>
+			<tr>
+				<th>#</th>
+				<th>Entrants</th>
+				<th>Winner</th>
+			</tr>
+			
+			{% for match in object.matches %}
+				<tr>
+					<td>{{ match.id }}</td>
+					<td>{{ match.entrants.all }}</td>
+					<td>{{ match.winner }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}

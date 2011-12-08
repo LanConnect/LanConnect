@@ -1,0 +1,34 @@
+# Run `pip install -r requirements.txt` to pull in all dependencies
+
+#Python Libs
+bencode # Decodes/Encodes bittorrent file format
+path.py # generic FS path manipulation library
+markdown # Markdown your text fields
+python-irclib # library for builing IRC bots
+# Whoosh # only needed in debug
+pyyaml # needed for loading fixtures
+python-ldap # LDAP User Admin
+
+# Django Libs
+Django>=1.3
+south # migrations support
+sorl-thumbnail # Fantastic thumbnailing library
+django-annoying # takes the annoying parts out of django
+django-boss # fixes django's retarded optparse reliance
+git+https://github.com/twoolie/django-bootstrap.git@patch-1#egg=django-bootstrap
+django-haystack # Advanced Full-text search
+django-admin-tools
+django-notifications
+
+#   dev tools/utils
+django-debug-toolbar # shows debug information on side of page for developers
+django-sentry # Aggregates errors and logs into easily searchable format. can xmit debug data back to PN
+django-treebeard # Replaces django-mptt, provides efficient tree operations.
+django-tables2 # generates sortable injection-proof tables
+
+#   content apps
+django-registration # Needed if you plan on sending registration emails
+django-authopenid # provides lovely ajaxy openid logins with fallback to django-registration
+django-messages # PM support
+django-piston # ajax hawtness
+django-taggit # tagging support

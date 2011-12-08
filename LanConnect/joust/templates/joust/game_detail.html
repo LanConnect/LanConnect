@@ -1,0 +1,37 @@
+{% extends "joust/base.html" %}
+
+{% block content %}
+	<h1>Game detail: {{ object.name }}</h1>
+	<p>Platform: {{ object.platforms }}</p>
+	
+	<h2>Tournaments for this game</h2>
+	<table>
+		<tbody>
+			<tr>
+				<th>Tournament Name</th>
+				<th>Start</th>
+				<th>End</th>
+				<th>Event</th>
+				<th>Bracket Type</th>
+				<th><abbr title="Players per Entrant">Pl/En</abbr></th>
+				<th><abbr title="Entrants per Game">En/Ga</abbr></th>
+				<th>Entrants</th>
+			</tr>
+			
+			{% for tg in object.tournament_games.all %}
+				<tr>
+					<td><a href="{{ tg.get_absolute_url }}">{{ tg.name }}</a></td>
+					<td>{{ tg.start }}</td>
+					<td>{{ tg.end }} {% if tg.in_progress %}(in progress){% endif %}</td>
+					<td>{{ tg.event.name }}</td>
+					<td>{{ tg.bracket_type }}</td>
+					<td>{{ tg.players_per_entrant }}</td>
+					<td>{{ tg.entrants_per_match }}</td>
+					<td>{{ tg.entrants|length }} of {{ tg.max_entrants }} max</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+		
+	</table>
+
+{% endblock %}

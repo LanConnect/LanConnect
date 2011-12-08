@@ -1,0 +1,14 @@
+{% extends "joust/base.html" %}
+{% block title %}Competitor Signup{% endblock title %}
+{# {% block stylesheets %}{% endblock stylesheets %} #}
+
+{# This will be our start page for the admin view, or a dashboard if you will #}
+
+{% block content %}
+	<h3>Tournament Signup - Organizer's Interface.</h3>
+	   <a class="button" href="{% url joust-selfserve-signup %}"> Add Tournament</a>
+	<a class="button" href="{% url joust-selfserve-signup %}"> Edit Tournament Information </a>
+	   <a class="button" href="{% url joust-selfserve-signup %}"> Generate Bracket </a>
+	<a class="button" href="{% url joust-admin-index %}"> Manual Signups</a>
+	   <a class="button" href="{% url joust-selfserve-signup %}"> Moderate Signups </a>
+{% endblock content %}

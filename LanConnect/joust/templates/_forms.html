@@ -1,0 +1,23 @@
+{% csrf_token %}
+{% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+{% for field in form.visible_fields %}
+	{% if field.errors %}
+	<tr><td colspan=2 class="ui-state-error ui-corner-all">
+		<span style="float: left; margin-right: .3em;" class="ui-icon ui-icon-alert" />
+		{{ field.errors }}
+	</td></tr>
+	{% endif %}
+	<tr>
+		<td><span class="{{ field.css_classes }}">
+			{% if field.field.required %}<b>{% endif %}
+			{{ field.label_tag }}
+			{% if field.field.required %}*</b>{% endif %}</span>
+		</td>
+		<td {% if field.errors %}class=".errors"{% endif %}>
+			{{ field }}
+			{% if field.help_text %}
+				<div class="help_text">{{field.help_text}}</div>
+			{% endif %}
+		</td>
+	</tr>
+{% endfor %}

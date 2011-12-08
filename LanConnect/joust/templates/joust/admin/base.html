@@ -1,0 +1,7 @@
+{% extends 'joust/base.html' %}
+
+{% block navigation %}{{block.super}} >> <a href="{% url joust-admin-index %}">Admin</a>{% endblock %}
+
+{% block content %}
+	{% block menu %} {% include "joust/_menu.html" %}{% endblock menu %}
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends "joust/admin/base.html" %}
+{% block title %}Tournament Bracket Generation{% endblock title %}
+
+{% block stylesheets %}
+<!--<link rel="stylesheet" type="text/css" href="/admin-media/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/admin-media/css/forms.css" />-->
+{% include "jquery/css.html" %}
+{% include "jquery/js.html" %}
+<script type="text/javascript">
+	$(function() {
+		$( "#tabs" ).tabs();
+	});
+</script>
+{% endblock stylesheets %} 
+
+{% block navigation %}{{block.super}} >> <a href="{% url joust-admin-tournaments-gen_bracket %}">Signup</a>{% endblock navigation %}
+
+{% block content %}
+	<h3>Bracket Generation</h3>
+	<div id="tabs">
+		<ul>
+			<li><a href="#options"> Options </a></li>
+			<li><a href="#brackets"> Proposed Brackets </a></li>
+		</ul>
+		<div id="options">
+			<form method="POST" action="{{ request.path }}#brackets">
+					{% with bracketform as form %}{% include "_forms.html" %}{% endwith %}
+					<tr><td></td><td><input type="submit" value="Generate Bracket"></td></tr>
+				</table>
+			</form>
+		</div>
+		<div id="brackets">
+			Hello World
+		</div>
+	</div>
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "joust/admin/base.html" %}
+{% block title %}Tournament Creation{% endblock title %}
+
+{% block stylesheets %}
+<!--<link rel="stylesheet" type="text/css" href="/admin-media/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/admin-media/css/forms.css" />-->
+{% include "jquery/js.html" %}
+{% endblock stylesheets %} 
+
+{% block navigation %}{{block.super}} >> <a href="{% url joust-admin-tournaments-create_tournament %}">Signup</a>{% endblock navigation %}
+
+{% block content %}
+    <h3>Tournament Generation</h3>
+    <form method="POST" action="{{ request.path }}">
+    	<table>
+            {% with tournamentform as form %}{% include "_forms.html" %}{% endwith %}
+            <tr><td></td><td><input type="submit" value="Generate Tournament"></td></tr>
+        </table>
+    </form>
+{% endblock content %}

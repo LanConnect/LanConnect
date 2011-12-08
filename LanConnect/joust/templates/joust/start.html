@@ -1,0 +1,12 @@
+{% extends "joust/base.html" %}
+{% block title %}Competitor Signup{% endblock title %}
+{# {% block stylesheets %}{% endblock stylesheets %} #}
+
+{% block content %}
+	<h3>Tournament Signup - Self Serve Signup booth.</h3>
+	<a class="button" href="{% url joust-selfserve-signup %}">Signup for Tournaments! </a>
+	{% if request.user.is_staff %}
+	<a class="button" href="{% url joust-admin-splash %}">Organizer Control Pannel</a>
+	{% endif %}
+	
+{% endblock content %}
